@@ -1,9 +1,12 @@
 import React from 'react';
-import { Code, ExternalLink } from 'lucide-react';
+import { Code, ExternalLink, ChevronRight } from 'lucide-react';
 
-const ProjectCard = ({ project }) => {
+const ProjectCard = ({ project, onClick }) => {
   return (
-    <div className="group relative bg-gray-800/50 rounded-xl overflow-hidden backdrop-blur-sm border border-gray-700 hover:border-purple-400 transition-all duration-300 hover:transform hover:-translate-y-2">
+    <div 
+      onClick={onClick}
+      className="group relative bg-gray-800/50 rounded-xl overflow-hidden backdrop-blur-sm border border-gray-700 hover:border-purple-400 transition-all duration-300 hover:transform hover:-translate-y-2 cursor-pointer"
+    >
       <div className="h-48 bg-gray-700 overflow-hidden">
         <img 
           src={project.image} 
@@ -12,7 +15,7 @@ const ProjectCard = ({ project }) => {
         />
       </div>
       <div className="p-6">
-        <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
+        <h3 className="text-2xl font-bold mb-2 group-hover:text-purple-400 transition-colors">{project.title}</h3>
         <p className="text-gray-400 mb-4">{project.description}</p>
         <div className="flex flex-wrap gap-2 mb-4">
           {project.tags.map((tag, i) => (
@@ -23,13 +26,9 @@ const ProjectCard = ({ project }) => {
         </div>
         <div className="flex justify-between items-center">
           <span className="text-gray-500">{project.year}</span>
-          <div className="flex gap-3">
-            <button className="p-2 hover:bg-gray-700 rounded-lg transition-colors">
-              <Code className="w-5 h-5" />
-            </button>
-            <button className="p-2 hover:bg-gray-700 rounded-lg transition-colors">
-              <ExternalLink className="w-5 h-5" />
-            </button>
+          <div className="flex items-center text-purple-400 opacity-0 group-hover:opacity-100 transition-opacity">
+            <span className="text-sm mr-2">View Details</span>
+            <ChevronRight className="w-4 h-4" />
           </div>
         </div>
       </div>

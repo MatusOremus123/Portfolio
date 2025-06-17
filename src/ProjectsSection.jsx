@@ -2,11 +2,14 @@ import React, { useState, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ProjectCard from './ProjectCard';
+import ProjectModal from './ProjectModal';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const ProjectsSection = () => {
   const [activeTab, setActiveTab] = useState('published');
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const sectionRef = useRef(null);
   const titleRef = useRef(null);
   const tabsRef = useRef(null);
@@ -82,6 +85,16 @@ const ProjectsSection = () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
   }, []);
+
+  const handleProjectClick = (project) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setTimeout(() => setSelectedProject(null), 300);
+  };
 
   const projects = [
     {
@@ -167,10 +180,20 @@ const ProjectsSection = () => {
             key={index}
             ref={el => projectsRef.current[index] = el}
           >
-            <ProjectCard project={project} />
+            <ProjectCard 
+              project={project} 
+              onClick={() => handleProjectClick(project)}
+            />
           </div>
         ))}
       </div>
+
+      {/* Project Modal */}
+      <ProjectModal 
+        project={selectedProject}
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+      />
     </section>
   );
 };
