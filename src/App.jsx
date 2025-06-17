@@ -1,7 +1,12 @@
 import React from 'react';
 import { Github, Linkedin, Twitter, Mail } from 'lucide-react';
+import SplitText from './SplitText';
 
 function App() {
+  const handleAnimationComplete = () => {
+    console.log('Animation completed!');
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 text-white">
       <nav className="flex justify-between items-center px-8 py-6">
@@ -27,18 +32,56 @@ function App() {
 
       <div className="flex flex-col items-center justify-center min-h-[80vh] px-8 text-center">
         <h1 className="text-6xl md:text-7xl font-bold mb-6 leading-tight">
-          Alex <span className="text-purple-400">Parker</span>
+          <SplitText
+            text="Alex "
+            className="inline"
+            delay={50}
+            duration={0.8}
+            ease="power4.out"
+            splitType="chars"
+            from={{ opacity: 0, y: 100, rotateZ: 10 }}
+            to={{ opacity: 1, y: 0, rotateZ: 0 }}
+            textAlign="center"
+          />
+          <SplitText
+            text="Parker"
+            className="text-purple-400 inline"
+            delay={70}
+            duration={0.8}
+            ease="power4.out"
+            splitType="chars"
+            from={{ opacity: 0, y: 100, rotateZ: -10 }}
+            to={{ opacity: 1, y: 0, rotateZ: 0 }}
+            textAlign="center"
+            onAnimationComplete={handleAnimationComplete}
+          />
         </h1>
         
-        <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl">
-          Game Designer & Creative Director
-        </p>
+        <SplitText
+          text="Game Designer & Creative Director"
+          className="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl"
+          delay={100}
+          duration={0.6}
+          ease="power3.out"
+          splitType="words"
+          from={{ opacity: 0, y: 40 }}
+          to={{ opacity: 1, y: 0 }}
+          textAlign="center"
+        />
         
-        <p className="text-lg text-gray-400 mb-12 max-w-3xl leading-relaxed">
-          Crafting immersive gaming experiences with a focus on innovative mechanics and compelling narratives.
-        </p>
+        <SplitText
+          text="Crafting immersive gaming experiences with a focus on innovative mechanics and compelling narratives."
+          className="text-lg text-gray-400 mb-12 max-w-3xl leading-relaxed"
+          delay={80}
+          duration={0.5}
+          ease="power2.out"
+          splitType="words"
+          from={{ opacity: 0, y: 30 }}
+          to={{ opacity: 1, y: 0 }}
+          textAlign="center"
+        />
 
-        <div className="flex space-x-6">
+        <div className="flex space-x-6 opacity-0 animate-fade-in-up animation-delay-1500">
           <a href="#" className="p-3 border border-gray-600 rounded-lg hover:border-purple-400 hover:bg-purple-400/10 transition-all duration-300">
             <Github className="w-6 h-6" />
           </a>
