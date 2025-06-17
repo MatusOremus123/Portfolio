@@ -10,28 +10,28 @@ function App() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 text-white">
       <nav className="flex justify-between items-center px-8 py-6">
-        <div className="text-xl font-bold">
+        <div className="text-2xl font-bold">
           <span className="text-white">Game</span>
-          <span className="text-purple-400">Designer</span>
+          <span className="text-purple-600">Designer</span>
         </div>
         <div className="flex space-x-8">
-          <a href="#about" className="text-gray-300 hover:text-white transition-colors">
+          <a href="#about" className="text-lg text-gray-300 hover:text-white transition-colors">
             About
           </a>
-          <a href="#skills" className="text-gray-300 hover:text-white transition-colors">
+          <a href="#skills" className="text-lg text-gray-300 hover:text-white transition-colors">
             Skills
           </a>
-          <a href="#projects" className="text-gray-300 hover:text-white transition-colors">
+          <a href="#projects" className="text-lg text-gray-300 hover:text-white transition-colors">
             Projects
           </a>
-          <button className="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-lg transition-colors">
+          <button className="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-lg transition-colors text-lg">
             Contact
           </button>
         </div>
       </nav>
 
       <div className="flex flex-col items-center justify-center min-h-[80vh] px-8 text-center">
-        <h1 className="text-6xl md:text-7xl font-bold mb-6 leading-tight">
+        <h1 className="text-7xl md:text-8xl lg:text-9xl font-bold mb-6 leading-tight">
           <SplitText
             text="Alex "
             className="inline"
@@ -59,7 +59,7 @@ function App() {
         
         <SplitText
           text="Game Designer & Creative Director"
-          className="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl"
+          className="text-2xl md:text-3xl lg:text-4xl text-gray-300 mb-8 max-w-2xl"
           delay={100}
           duration={0.6}
           ease="power3.out"
@@ -71,7 +71,7 @@ function App() {
         
         <SplitText
           text="Crafting immersive gaming experiences with a focus on innovative mechanics and compelling narratives."
-          className="text-lg text-gray-400 mb-12 max-w-3xl leading-relaxed"
+          className="text-xl md:text-2xl text-gray-400 mb-12 max-w-4xl leading-relaxed"
           delay={80}
           duration={0.5}
           ease="power2.out"
@@ -82,17 +82,17 @@ function App() {
         />
 
         <div className="flex space-x-6 opacity-0 animate-fade-in-up animation-delay-1500">
-          <a href="#" className="p-3 border border-gray-600 rounded-lg hover:border-purple-400 hover:bg-purple-400/10 transition-all duration-300">
-            <Github className="w-6 h-6" />
+          <a href="#" className="p-4 border border-gray-600 rounded-lg hover:border-purple-400 hover:bg-purple-400/10 transition-all duration-300">
+            <Github className="w-8 h-8" />
           </a>
-          <a href="#" className="p-3 border border-gray-600 rounded-lg hover:border-purple-400 hover:bg-purple-400/10 transition-all duration-300">
-            <Linkedin className="w-6 h-6" />
+          <a href="#" className="p-4 border border-gray-600 rounded-lg hover:border-purple-400 hover:bg-purple-400/10 transition-all duration-300">
+            <Linkedin className="w-8 h-8" />
           </a>
-          <a href="#" className="p-3 border border-gray-600 rounded-lg hover:border-purple-400 hover:bg-purple-400/10 transition-all duration-300">
-            <Twitter className="w-6 h-6" />
+          <a href="#" className="p-4 border border-gray-600 rounded-lg hover:border-purple-400 hover:bg-purple-400/10 transition-all duration-300">
+            <Twitter className="w-8 h-8" />
           </a>
-          <a href="#" className="p-3 border border-gray-600 rounded-lg hover:border-purple-400 hover:bg-purple-400/10 transition-all duration-300">
-            <Mail className="w-6 h-6" />
+          <a href="#" className="p-4 border border-gray-600 rounded-lg hover:border-purple-400 hover:bg-purple-400/10 transition-all duration-300">
+            <Mail className="w-8 h-8" />
           </a>
         </div>
       </div>
