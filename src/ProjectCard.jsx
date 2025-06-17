@@ -5,7 +5,7 @@ const ProjectCard = ({ project, onClick }) => {
   return (
     <div 
       onClick={onClick}
-      className="group relative bg-gray-800/50 rounded-xl overflow-hidden backdrop-blur-sm border border-gray-700 hover:border-purple-400 transition-all duration-300 hover:transform hover:-translate-y-2 cursor-pointer"
+      className="group relative bg-gray-800/50 rounded-xl overflow-hidden backdrop-blur-sm border border-gray-700 hover:border-purple-400 transition-all duration-300 hover:transform hover:-translate-y-2 cursor-pointer w-full h-full"
     >
       <div className="h-48 bg-gray-700 overflow-hidden">
         <img 

@@ -8,7 +8,7 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen px-8 text-center">
+    <div id="home" className="flex flex-col items-center justify-center min-h-screen px-8 text-center pt-20">
       <h1 className="text-7xl md:text-8xl lg:text-9xl font-bold mb-6 leading-tight">
         <SplitText
           text="Alex "
