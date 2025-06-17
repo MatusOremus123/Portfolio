@@ -1,6 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
 
 /* Custom animations for social icons */
 @keyframes fade-in-up {
@@ -20,4 +23,22 @@
 
 .animation-delay-1500 {
   animation-delay: 1.5s;
+}
+
+/* Hide scrollbar for cleaner look (optional) */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6b46c1;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7c3aed;
 }

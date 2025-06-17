@@ -1,8 +1,87 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ProjectCard from './ProjectCard';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const ProjectsSection = () => {
   const [activeTab, setActiveTab] = useState('published');
+  const sectionRef = useRef(null);
+  const titleRef = useRef(null);
+  const tabsRef = useRef(null);
+  const projectsRef = useRef([]);
+
+  useEffect(() => {
+    // Animate section title
+    gsap.fromTo(titleRef.current,
+      {
+        opacity: 0,
+        y: 50,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: titleRef.current,
+          start: "top 80%",
+          once: true,
+        }
+      }
+    );
+
+    // Animate tabs
+    gsap.fromTo(tabsRef.current,
+      {
+        opacity: 0,
+        y: 30,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        delay: 0.3,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: tabsRef.current,
+          start: "top 85%",
+          once: true,
+        }
+      }
+    );
+
+    // Animate project cards
+    projectsRef.current.forEach((el, index) => {
+      if (el) {
+        gsap.fromTo(el,
+          {
+            opacity: 0,
+            y: 60,
+            scale: 0.9,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.8,
+            delay: index * 0.1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: el,
+              start: "top 90%",
+              once: true,
+            }
+          }
+        );
+      }
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, []);
 
   const projects = [
     {
@@ -50,13 +129,15 @@ const ProjectsSection = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 px-8 max-w-7xl mx-auto">
+    <section ref={sectionRef} id="projects" className="py-20 px-8 max-w-7xl mx-auto">
       <div className="text-center mb-16">
-        <h2 className="text-5xl md:text-6xl font-bold mb-4">
-          Projects
-        </h2>
-        <div className="w-20 h-1 bg-purple-400 mx-auto mb-8"></div>
-        <div className="flex justify-center gap-4 mb-12">
+        <div ref={titleRef}>
+          <h2 className="text-5xl md:text-6xl font-bold mb-4">
+            Projects
+          </h2>
+          <div className="w-20 h-1 bg-purple-400 mx-auto mb-8"></div>
+        </div>
+        <div ref={tabsRef} className="flex justify-center gap-4 mb-12">
           <button 
             onClick={() => setActiveTab('published')}
             className={`px-6 py-2 rounded-lg transition-colors ${
@@ -82,7 +163,12 @@ const ProjectsSection = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project, index) => (
-          <ProjectCard key={index} project={project} />
+          <div
+            key={index}
+            ref={el => projectsRef.current[index] = el}
+          >
+            <ProjectCard project={project} />
+          </div>
         ))}
       </div>
     </section>

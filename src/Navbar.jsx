@@ -1,8 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Navbar = () => {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <nav className="fixed top-0 w-full bg-gray-900/80 backdrop-blur-md z-50 flex justify-between items-center px-8 py-6">
+    <nav className={`fixed top-0 w-full z-50 flex justify-between items-center px-8 py-6 transition-all duration-300 ${
+      scrolled ? 'bg-gray-900/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
+    }`}>
       <div className="text-2xl font-bold">
         <span className="text-white">Game</span>
         <span className="text-purple-400">Designer</span>
