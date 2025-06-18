@@ -6,11 +6,13 @@ import BackgroundEffects from './BackgroundEffects';
 
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 text-white">
-      <Navbar />
-      <HeroSection />
-      <ProjectsSection />
-      <BackgroundEffects />
+    <div className="min-h-screen bg-black text-[#DEEEDF] relative overflow-hidden">
+      <BackgroundEffects className="opacity-70" />
+      <div className="relative z-10">
+        <Navbar />
+        <HeroSection />
+        <ProjectsSection />
+      </div>
     </div>
   );
 }
