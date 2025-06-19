@@ -7,7 +7,7 @@ import BackgroundEffects from './BackgroundEffects';
 function App() {
   return (
     <div className="min-h-screen bg-black text-[#DEEEDF] relative overflow-hidden">
-      <BackgroundEffects className="opacity-70" />
+      <BackgroundEffects className="opacity-100" />  
       <div className="relative z-10">
         <Navbar />
         <HeroSection />
