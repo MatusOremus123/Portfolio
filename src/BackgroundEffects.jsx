@@ -1,10 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { cn } from "./utils";
 
 export const BackgroundEffects = React.memo(
   ({ className }) => {
-    
+    // Reduced number of paths for better performance
     const paths = [
       "M-380 -189C-380 -189 -312 216 152 343C616 470 684 875 684 875",
       "M-359 -213C-359 -213 -291 192 173 319C637 446 705 851 705 851",
@@ -25,10 +24,7 @@ export const BackgroundEffects = React.memo(
     
     return (
       <div
-        className={cn(
-          "absolute inset-0 flex h-full w-full items-center justify-center",
-          className,
-        )}
+        className={`absolute inset-0 flex h-full w-full items-center justify-center ${className || ''}`}
       >
         <svg
           className="pointer-events-none absolute z-0 h-full w-full"
@@ -43,11 +39,11 @@ export const BackgroundEffects = React.memo(
               key={`path-${index}`}
               d={path}
               stroke={`url(#gradient-${index})`}
-              strokeWidth="1.5"
+              strokeWidth="2.5"  // Increased thickness
               initial={{ pathLength: 0, opacity: 0 }}
               animate={{ 
                 pathLength: [0, 1, 1],
-                opacity: [0, 0.8, 0]
+                opacity: [0, 1, 0]  // Full opacity in the middle
               }}
               transition={{
                 pathLength: {
@@ -55,14 +51,14 @@ export const BackgroundEffects = React.memo(
                   ease: "linear",
                   repeat: Infinity,
                   delay: index * 0.3,
-                  times: [0, 0.8, 1] 
+                  times: [0, 0.7, 1] // Path draws for 70% of time, stays for 30%
                 },
                 opacity: {
                   duration: 12,
                   ease: "easeInOut",
                   repeat: Infinity,
                   delay: index * 0.3,
-                  times: [0, 0.2, 1] 
+                  times: [0, 0.1, 1] // Quick fade in (10%), long fade out (90%)
                 }
               }}
             />
@@ -78,8 +74,10 @@ export const BackgroundEffects = React.memo(
                 y2="100%"
               >
                 <stop offset="0%" stopColor="#95B597" stopOpacity="0" />
-                <stop offset="50%" stopColor="#95B597" stopOpacity="0.8" />  // Increased from 0.5
-                <stop offset="100%" stopColor="#DEEEDF" stopOpacity="0" />
+                <stop offset="20%" stopColor="#95B597" stopOpacity="1" />  // Brighter green
+                <stop offset="50%" stopColor="#DEEEDF" stopOpacity="1" />  // Full opacity white
+                <stop offset="80%" stopColor="#95B597" stopOpacity="1" />  // Brighter green
+                <stop offset="100%" stopColor="#95B597" stopOpacity="0" />
               </linearGradient>
             ))}
           </defs>
