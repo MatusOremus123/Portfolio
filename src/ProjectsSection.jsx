@@ -156,15 +156,15 @@ const ProjectsSection = () => {
           <h2 className="text-5xl md:text-6xl font-bold mb-4">
             Projects
           </h2>
-          <div className="w-20 h-1 bg-purple-400 mx-auto mb-8"></div>
+          <div className="w-20 h-1 bg-[#519e55] mx-auto mb-8"></div>
         </div>
         <div ref={tabsRef} className="flex justify-center gap-4 mb-12">
           <button 
             onClick={() => setActiveTab('published')}
             className={`px-6 py-2 rounded-lg transition-colors ${
               activeTab === 'published' 
-                ? 'bg-purple-600' 
-                : 'border border-gray-600 hover:bg-gray-800'
+                ? 'bg-[#519e55]' 
+                : 'border border-black-600 hover:bg-gray-800'
             }`}
           >
             Published Games
@@ -173,7 +173,7 @@ const ProjectsSection = () => {
             onClick={() => setActiveTab('other')}
             className={`px-6 py-2 rounded-lg transition-colors ${
               activeTab === 'other' 
-                ? 'bg-purple-600' 
+                ? 'bg-[#519e55]' 
                 : 'border border-gray-600 hover:bg-gray-800'
             }`}
           >

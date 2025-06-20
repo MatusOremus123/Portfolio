@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from './Navbar';
 import HeroSection from './HeroSection';
 import ProjectsSection from './ProjectsSection';
+import SkillsSection from './SkillsSection';
 import BackgroundEffects from './BackgroundEffects';
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
         <Navbar />
         <HeroSection />
         <ProjectsSection />
+        <SkillsSection  />
       </div>
     </div>
   );

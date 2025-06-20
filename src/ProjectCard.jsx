@@ -5,7 +5,7 @@ const ProjectCard = ({ project, onClick }) => {
   return (
     <div 
       onClick={onClick}
-      className="group relative bg-gray-800/50 rounded-xl overflow-hidden backdrop-blur-sm border border-gray-700 hover:border-purple-400 transition-all duration-300 hover:transform hover:-translate-y-2 cursor-pointer w-full min-h-64 lg:min-h-80"
+      className="group relative bg-gray-800/50 rounded-xl overflow-hidden backdrop-blur-sm border border-gray-700 hover:border-[#519e55] transition-all duration-300 hover:transform hover:-translate-y-2 cursor-pointer w-full min-h-64 lg:min-h-80"
     >
       <div className="flex flex-row h-full">
         {/* Image container */}
@@ -19,7 +19,7 @@ const ProjectCard = ({ project, onClick }) => {
 
         {/* Content container */}
         <div className="w-2/3 p-8 flex flex-col h-full">
-          <h3 className="text-3xl font-bold mb-4 group-hover:text-purple-400 transition-colors">
+          <h3 className="text-3xl font-bold mb-4 group-hover:text-[#519e55] transition-colors">
             {project.title}
           </h3>
           
@@ -40,7 +40,7 @@ const ProjectCard = ({ project, onClick }) => {
           {/* Year and Details */}
           <div className="flex justify-between items-center mt-auto">
             <span className="text-gray-500 text-sm">{project.year}</span>
-            <div className="flex items-center text-purple-400 opacity-0 group-hover:opacity-100 transition-opacity">
+            <div className="flex items-center text-[#519e55] opacity-0 group-hover:opacity-100 transition-opacity">
               <span className="text-sm mr-2">View Details</span>
               <ChevronRight className="w-4 h-4" />
             </div>
