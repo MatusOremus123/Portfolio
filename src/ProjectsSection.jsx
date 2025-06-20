@@ -98,46 +98,54 @@ const ProjectsSection = () => {
 
   const projects = [
     {
-      title: "Nebula Odyssey",
-      description: "A sci-fi space exploration RPG with branching narratives and strategic combat.",
+      title: "Shark Hunt",
+      description: "You are a recently graduated shark on your first hunt. Try to eat as much as you can manage.",
       tags: ["RPG", "Sci-Fi", "Exploration"],
       year: "2023",
-      image: "https://via.placeholder.com/400x300/4B0082/FFFFFF?text=Nebula+Odyssey"
+      image: "https://img.itch.zone/aW1nLzIxNTExNzUwLnBuZw==/315x250%23c/GMImpi.png"
     },
     {
-      title: "Crimson Legacy",
-      description: "A dark fantasy action RPG with a unique blood magic system and challenging combat.",
-      tags: ["Action", "RPG", "Dark Fantasy"],
-      year: "2022",
-      image: "https://via.placeholder.com/400x300/8B0000/FFFFFF?text=Crimson+Legacy"
+      title: "JoyKill",
+      description: "An emotional and unconventional crowd simulation.",
+      tags: ["Simulation"],
+      year: "2025",
+      image: "https://img.itch.zone/aW1nLzIxNzUzNTU1LnBuZw==/315x250%23c/xBKXo%2B.png"
     },
     {
-      title: "Pocket Monsters: Celestial Edition",
-      description: "A monster collection and battle game with unique celestial-themed creatures.",
-      tags: ["Mobile", "Collection", "Turn-based"],
-      year: "2021",
-      image: "https://via.placeholder.com/400x300/FF6347/FFFFFF?text=Pocket+Monsters"
+      title: "(DDR) Drunk Döner RPG",
+      description: "Pay off your debts to the kebab man.",
+      tags: ["Simulation"],
+      year: "2025",
+      image: "https://img.itch.zone/aW1nLzIxNzQyOTkyLnBuZw==/315x250%23c/%2BPZJb1.png"
     },
     {
-      title: "Urban Drift",
-      description: "A stylish street racing game with realistic physics and deep car customization.",
-      tags: ["Racing", "Customization"],
-      year: "2020",
-      image: "https://via.placeholder.com/400x300/FF8C00/FFFFFF?text=Urban+Drift"
+      title: "Unconventional Driving Sim",
+      description: "Grab your buddy and test your skills in this co-operative driving simulator.",
+      tags: ["Racing", "Simulation"],
+      year: "2025",
+      image: "https://img.itch.zone/aW1nLzIwOTg2NDA2LnBuZw==/315x250%23c/BUe%2Bb7.png"
     },
     {
-      title: "Quantum Conundrum",
-      description: "A mind-bending puzzle game with reality-warping mechanics.",
-      tags: ["Puzzle", "First-Person", "Physics"],
-      year: "2021",
-      image: "https://via.placeholder.com/400x300/483D8B/FFFFFF?text=Quantum+Conundrum"
+      title: "(Don't) Lie",
+      description: "A story about crimes and lies.",
+      tags: ["Interactive", "Fiction"],
+      year: "2025",
+      image: "https://img.itch.zone/aW1nLzIwNjI2NTk3LnBuZw==/315x250%23c/F1xxRz.png"
     },
     {
-      title: "Echo Protocol",
-      description: "A stealth action game featuring advanced AI and emergent gameplay.",
-      tags: ["Stealth", "Action", "Sci-Fi"],
-      year: "2023",
-      image: "https://via.placeholder.com/400x300/2F4F4F/FFFFFF?text=Echo+Protocol"
+      title: "Frogis",
+      description: "FROG HEHE.",
+      tags: ["Survival"],
+      year: "2025",
+      image: "https://img.itch.zone/aW1nLzIwNzMwNjg5LnBuZw==/315x250%23c/wmSpC%2F.png"
+    },
+
+     {
+      title: "Line Arcade",
+      description: "Play three arcade inspired mini-games.",
+      tags: [],
+      year: "2025",
+      image: "https://img.itch.zone/aW1nLzE5MzY3NDc1LnBuZw==/315x250%23c/XBqZR4.png"
     }
   ];
 
