@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from './Navbar';
 import HeroSection from './HeroSection';
+import AboutSection from './AboutSection';
 import ProjectsSection from './ProjectsSection';
 import SkillsSection from './SkillsSection';
 import BackgroundEffects from './BackgroundEffects';
@@ -14,6 +15,7 @@ function App() {
         <HeroSection />
         <ProjectsSection />
         <SkillsSection  />
+        <AboutSection />
       </div>
     </div>
   );

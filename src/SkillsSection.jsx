@@ -1,18 +1,52 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import SplitText from './SplitText';
 
+gsap.registerPlugin(ScrollTrigger);
+
+const skills = [
+  { name: 'Game Design', level: 95, color: '#519e55' },
+  { name: 'Narrative Design', level: 90, color: '#5fa863' },
+  { name: 'Unity', level: 85, color: '#6bb26c' },
+  { name: 'Unreal Engine', level: 80, color: '#77bc75' },
+  { name: 'Level Design', level: 88, color: '#84c67e' },
+  { name: 'Player Psychology', level: 92, color: '#95B597' }
+];
+
 const SkillsSection = () => {
-  const skills = [
-    { name: 'Game Design', level: 95, color: '#519e55' },
-    { name: 'Narrative Design', level: 90, color: '#5fa863' },
-    { name: 'Unity', level: 85, color: '#6bb26c' },
-    { name: 'Unreal Engine', level: 80, color: '#77bc75' },
-    { name: 'Level Design', level: 88, color: '#84c67e' },
-    { name: 'Player Psychology', level: 92, color: '#95B597' }
-  ];
+  const skillsRef = useRef([]);
+
+  useEffect(() => {
+    // Animate progress bars when they come into view
+    skillsRef.current.forEach((progressBar, index) => {
+      if (progressBar) {
+        gsap.fromTo(progressBar,
+          {
+            width: '0%'
+          },
+          {
+            width: `${skills[index].level}%`,
+            duration: 1.5,
+            ease: "power2.out",
+            delay: index * 0.1,
+            scrollTrigger: {
+              trigger: progressBar,
+              start: "top 85%",
+              once: true,
+            }
+          }
+        );
+      }
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, []);
 
   return (
-    <section id="skills" className="py-20 px-8 bg-gray-900/50 backdrop-blur-sm">
+    <section id="skills" className="py-20 px-8">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">
           <SplitText
@@ -37,12 +71,12 @@ const SkillsSection = () => {
                 </div>
                 <div className="h-3 bg-gray-800 rounded-full overflow-hidden">
                   <div 
-                    className="h-full rounded-full transition-all duration-1000 ease-out"
+                    ref={el => skillsRef.current[index] = el}
+                    className="h-full rounded-full"
                     style={{ 
-                      width: `${skill.level}%`,
+                      width: '0%',
                       background: `linear-gradient(90deg, ${skill.color}, #95B597)`
                     }}
-                    data-aos="progress-animation"
                   />
                 </div>
               </div>
